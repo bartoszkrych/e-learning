@@ -18,4 +18,8 @@ public class Answer {
     private Integer id;
 
     private String contents;
+    private Integer question_id;
+
+    private Boolean isCorrect = false;
+    private Boolean isSelected = false;
 }
