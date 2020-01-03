@@ -4,9 +4,11 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 @Entity(tableName = "ANSWER", foreignKeys = @ForeignKey(
         entity = Question.class,
         parentColumns = "id",
