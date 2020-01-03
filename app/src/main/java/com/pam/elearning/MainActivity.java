@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.pam.elearning.model.Lesson;
 import com.pam.elearning.view_model.LessonViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,10 +17,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Lesson lesson = lessonViewModel.getById(1);
+        lessonViewModel = new ViewModelProvider(this).get(LessonViewModel.class);
+
 
         TextView textView = findViewById(R.id.first);
 
-        textView.setText(lesson.getTitle());
+        lessonViewModel.getById(1).observe(this, lesson -> textView.setText(lesson.getTitle()));
+
+
     }
+
 }
