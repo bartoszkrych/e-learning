@@ -2,9 +2,11 @@ package com.pam.elearning.database;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.pam.elearning.dao.AnswerDao;
 import com.pam.elearning.dao.LessonDao;
@@ -42,4 +44,20 @@ public abstract class ELearningDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
+
+    private static RoomDatabase.Callback callback = new RoomDatabase.Callback() {
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
+            databaseWriteExecutor.execute(() -> {
+                LessonDao lessonDao = INSTANCE.lessonDao();
+                AnswerDao answerDao = INSTANCE.answerDao();
+                QuestionDao questionDao = INSTANCE.questionDao();
+
+                lessonDao.insert(new Lesson(1, "Chopin", "DEFAULT TXT ABOUT CHOPIN"));
+                lessonDao.insert(new Lesson(2, "Polanski", "DEFAULT TXT ABOUT POLANSKI"));
+                lessonDao.insert(new Lesson(3, "da Vinci", "DEFAULT TXT ABOUT DA VINCI"));
+            });
+        }
+    };
 }
