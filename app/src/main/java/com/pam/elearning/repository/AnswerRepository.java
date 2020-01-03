@@ -21,7 +21,7 @@ public class AnswerRepository {
         return answerDao.findByQuestionId(id);
     }
 
-    void selectById(Integer id) {
+    public void selectById(Integer id) {
         ELearningDatabase.databaseWriteExecutor.execute(() -> answerDao.selectById(id));
     }
 }
