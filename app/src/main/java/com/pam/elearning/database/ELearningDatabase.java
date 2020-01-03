@@ -38,6 +38,7 @@ public abstract class ELearningDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ELearningDatabase.class, "e_learning_database")
+                            .addCallback(callback)
                             .build();
                 }
             }
