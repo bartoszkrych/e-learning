@@ -1,5 +1,6 @@
 package com.pam.elearning.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Query;
 
@@ -11,7 +12,7 @@ import java.util.List;
 public interface AnswerDao extends BaseDao<Answer>{
 
     @Query("SELECT * FROM ANSWER WHERE question_id = :id")
-    List<Answer> findByQuestionId(final Integer id);
+    LiveData<List<Answer>> findByQuestionId(final Integer id);
 
     @Query("UPDATE ANSWER SET isSelected = 1 WHERE id = :id ")
     void selectById(Integer id);

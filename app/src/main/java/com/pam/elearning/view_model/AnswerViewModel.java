@@ -3,6 +3,7 @@ package com.pam.elearning.view_model;
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 import com.pam.elearning.model.Answer;
 import com.pam.elearning.repository.AnswerRepository;
@@ -18,7 +19,7 @@ public class AnswerViewModel extends AndroidViewModel {
         answerRepository = new AnswerRepository(application);
     }
 
-    public List<Answer> getByQuestionId(Integer id) {
+    public LiveData<List<Answer>> getByQuestionId(Integer id) {
         return answerRepository.getByQuestionId(id);
     }
 

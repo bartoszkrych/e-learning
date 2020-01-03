@@ -2,6 +2,8 @@ package com.pam.elearning.repository;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
 import com.pam.elearning.dao.LessonDao;
 import com.pam.elearning.database.ELearningDatabase;
 import com.pam.elearning.model.Lesson;
@@ -15,7 +17,7 @@ public class LessonRepository {
         this.lessonDao = db.lessonDao();
     }
 
-    public Lesson getById(Integer id) {
+    public LiveData<Lesson> getById(Integer id) {
         return lessonDao.findById(id);
     }
 }

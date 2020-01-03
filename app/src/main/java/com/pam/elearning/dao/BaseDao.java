@@ -1,10 +1,9 @@
 package com.pam.elearning.dao;
 
 import androidx.room.Insert;
-
-import java.util.List;
+import androidx.room.OnConflictStrategy;
 
 public interface BaseDao<T> {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(T entity);
 }
