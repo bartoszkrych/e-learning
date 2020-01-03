@@ -12,5 +12,5 @@ public interface AnswerDao {
     List<Answer> findByQuestionId(final Integer id);
 
     @Query("UPDATE ANSWER SET isSelected = 1 WHERE id = id ")
-    int selectById(Integer id);
+    void selectById(Integer id);
 }
