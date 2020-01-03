@@ -6,7 +6,7 @@ import androidx.room.Query;
 import com.pam.elearning.model.Question;
 
 @Dao
-public interface QuestionDao {
+public interface QuestionDao extends BaseDao<Question>{
 
     @Query("SELECT * FROM QUESTION WHERE lesson_id = id")
     Question findByLessonId(final Integer id);

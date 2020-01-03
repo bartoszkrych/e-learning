@@ -6,7 +6,7 @@ import com.pam.elearning.model.Answer;
 
 import java.util.List;
 
-public interface AnswerDao {
+public interface AnswerDao extends BaseDao<Answer>{
 
     @Query("SELECT * FROM ANSWER WHERE question_id = id")
     List<Answer> findByQuestionId(final Integer id);
