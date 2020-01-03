@@ -15,7 +15,7 @@ public class LessonRepository {
         this.lessonDao = db.lessonDao();
     }
 
-    Lesson getById(Integer id) {
+    public Lesson getById(Integer id) {
         return lessonDao.findById(id);
     }
 }

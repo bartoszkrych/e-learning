@@ -15,7 +15,7 @@ public class QuestionRepository {
         this.questionDao = db.questionDao();
     }
 
-    Question getById(Integer id) {
+    public Question getByLessonId(Integer id) {
         return questionDao.findByLessonId(id);
     }
 }

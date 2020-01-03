@@ -17,7 +17,7 @@ public class AnswerRepository {
         this.answerDao = db.answerDao();
     }
 
-    List<Answer> getById(Integer id) {
+    public List<Answer> getByQuestionId(Integer id) {
         return answerDao.findByQuestionId(id);
     }
 
