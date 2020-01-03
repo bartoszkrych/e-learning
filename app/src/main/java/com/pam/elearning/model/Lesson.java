@@ -1,6 +1,5 @@
 package com.pam.elearning.model;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -13,9 +12,11 @@ import lombok.Data;
 public class Lesson {
 
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     private Integer id;
 
     private String title;
     private String text;
+
+    public Lesson() {
+    }
 }

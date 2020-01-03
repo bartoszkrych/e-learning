@@ -24,4 +24,7 @@ public class Answer {
 
     private Boolean isCorrect = false;
     private Boolean isSelected = false;
+
+    public Answer() {
+    }
 }

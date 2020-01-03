@@ -22,4 +22,7 @@ public class Question {
 
     private String contents;
     private Integer lesson_id;
+
+    public Question() {
+    }
 }
