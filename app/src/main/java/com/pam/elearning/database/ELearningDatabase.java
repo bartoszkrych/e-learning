@@ -58,6 +58,9 @@ public abstract class ELearningDatabase extends RoomDatabase {
                 lessonDao.insert(new Lesson(1, "Chopin", "DEFAULT TXT ABOUT CHOPIN"));
                 lessonDao.insert(new Lesson(2, "Polanski", "DEFAULT TXT ABOUT POLANSKI"));
                 lessonDao.insert(new Lesson(3, "da Vinci", "DEFAULT TXT ABOUT DA VINCI"));
+                questionDao.insert(new Question(4, "Where was Chopin born?", 1));
+                answerDao.insert(new Answer(5, "POLAND", 4, true));
+                answerDao.insert(new Answer(6, "POLAND", 4, true));
             });
         }
     };

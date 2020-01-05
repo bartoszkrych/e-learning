@@ -27,4 +27,11 @@ public class Answer {
 
     public Answer() {
     }
+
+    public Answer(Integer id, String contents, Integer question_id, Boolean isCorrect) {
+        this.id = id;
+        this.contents = contents;
+        this.question_id = question_id;
+        this.isCorrect = isCorrect;
+    }
 }
