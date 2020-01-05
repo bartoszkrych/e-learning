@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.pam.elearning.view_model.AnswerViewModel;
 import com.pam.elearning.view_model.LessonViewModel;
 import com.pam.elearning.view_model.QuestionViewModel;
+import com.potyvideo.library.AndExoPlayerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
+        AndExoPlayerView andExoPlayerView = findViewById(R.id.andExoPlayerView);
+
+        andExoPlayerView.setSource("http://www.amclassical.com/mp3/amclassical_chopin_prelude_in_c_minor.mp3");
+
+        AndExoPlayerView andExoPlayerView2 = findViewById(R.id.andExoPlayerView2);
+
+        andExoPlayerView2.setSource("http://clips.vorwaerts-gmbh.de/VfE_html5.mp4");
 
 //        Question question = questionViewModel.getByLessonId(lesson.getId()).getValue();
 //

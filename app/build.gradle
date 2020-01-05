@@ -49,4 +49,5 @@ dependencies {
     // Testing
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
 
+    implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:1.0.14'
 }
