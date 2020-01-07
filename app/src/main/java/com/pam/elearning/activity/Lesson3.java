@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
+import com.pam.elearning.activity.question.Question1;
 import com.pam.elearning.view_model.LessonViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -83,6 +84,12 @@ public class Lesson3 extends AppCompatActivity {
                 return true;
             case R.id.item_lesson_3:
                 Toast.makeText(this, "This is it!", Toast.LENGTH_SHORT).show();
+            case R.id.item_test:
+                Intent i3 = new Intent(this, Question1.class);
+                finish();
+                startActivity(i3);
+                overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -81,6 +81,9 @@ public class Lesson1 extends AppCompatActivity {
                 finish();
                 startActivity(i2);
                 overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+            case R.id.item_test:
+                Toast.makeText(this, "AFTER LESSON ABOUT DA VINCI!", Toast.LENGTH_SHORT).show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

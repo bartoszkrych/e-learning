@@ -15,5 +15,9 @@
         android:id="@+id/item_lesson_3"
         android:title="Lesson 3"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/item_test"
+        android:title="TEST"
+        app:showAsAction="never" />
 
 </menu>
