@@ -16,6 +16,7 @@ public class Lesson {
 
     private String title;
     private String text;
+    private String url;
 
     public Lesson() {
     }
