@@ -80,10 +80,11 @@ public class Lesson3 extends AppCompatActivity {
                 Intent i2 = new Intent(this, Lesson2.class);
                 finish();
                 startActivity(i2);
-                overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+                overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
                 return true;
             case R.id.item_lesson_3:
                 Toast.makeText(this, "This is it!", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.item_test:
                 Intent i3 = new Intent(this, Question1.class);
                 finish();
