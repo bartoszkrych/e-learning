@@ -71,9 +71,18 @@ public abstract class ELearningDatabase extends RoomDatabase {
                                 "\n" +
                                 "Born out of wedlock to a notary, Piero da Vinci, and a peasant woman, Caterina, in Vinci, in the region of Florence, Italy, Leonardo was educated in the studio of the renowned Italian painter Andrea del Verrocchio. Much of his earlier working life was spent in the service of Ludovico il Moro in Milan, and he later worked in Rome, Bologna and Venice. He spent his last three years in France, where he died in 1519. ",
                         "https://drukarnia-krakowska.pl/wp-content/uploads/2019/04/Mona-Lisa-Leonardo-da-Vinci-reprodukcje-obrazow-galeria-sztuki.jpg"));
-                questionDao.insert(new Question(4, "Where was Chopin born?", 1));
-                answerDao.insert(new Answer(5, "POLAND", 4, true));
-                answerDao.insert(new Answer(6, "POLAND", 4, true));
+                questionDao.insert(new Question(4, "Where was Frédéric François Chopin born?", 1));
+                answerDao.insert(new Answer(5, "French", 4, false));
+                answerDao.insert(new Answer(6, "Poland", 4, true));
+                answerDao.insert(new Answer(7, "United States", 4, false));
+                questionDao.insert(new Question(8, "Where was Frédéric François Chopin born?", 2));
+                answerDao.insert(new Answer(9, "Blender", 8, true));
+                answerDao.insert(new Answer(10, "3ds Max", 8, false));
+                answerDao.insert(new Answer(11, "Maya", 8, false));
+                questionDao.insert(new Question(12, "Who taught Leonardo Da Vinci?", 3));
+                answerDao.insert(new Answer(13, "Sandro Botticelli", 12, false));
+                answerDao.insert(new Answer(14, "Michelangelo di Lodovico", 12, false));
+                answerDao.insert(new Answer(15, "Andrea del Verrocchio", 12, true));
             });
         }
     };
