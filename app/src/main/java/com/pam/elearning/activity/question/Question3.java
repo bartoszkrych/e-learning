@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
+import com.pam.elearning.activity.Lesson1;
 import com.pam.elearning.view_model.AnswerViewModel;
 import com.pam.elearning.view_model.LessonViewModel;
 import com.pam.elearning.view_model.QuestionViewModel;
@@ -20,24 +21,24 @@ import com.pam.elearning.view_model.QuestionViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Question1 extends AppCompatActivity {
+public class Question3 extends AppCompatActivity {
 
-    @BindView(R.id.question_1)
+    @BindView(R.id.question_3)
     TextView question;
 
-    @BindView(R.id.radioButton_1_1)
+    @BindView(R.id.radioButton_3_1)
     RadioButton radioButton1;
 
-    @BindView(R.id.radioButton_1_2)
+    @BindView(R.id.radioButton_3_2)
     RadioButton radioButton2;
 
-    @BindView(R.id.radioButton_1_3)
+    @BindView(R.id.radioButton_3_3)
     RadioButton radioButton3;
 
-    @BindView(R.id.radioGroup1)
+    @BindView(R.id.radioGroup3)
     RadioGroup radioGroup;
 
-    final static Integer lesson_number = 1;
+    final static Integer lesson_number = 3;
 
     private LessonViewModel lessonViewModel;
     private QuestionViewModel questionViewModel;
@@ -48,24 +49,24 @@ public class Question1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_question1);
+        setContentView(R.layout.activity_question3);
         setTitle("TEST");
         ButterKnife.bind(this);
 
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
-                case R.id.radioButton_1_1:
+                case R.id.radioButton_3_1:
                     radioButton1.setSelected(true);
                     radioButton2.setSelected(false);
                     radioButton3.setSelected(false);
                     break;
 
-                case R.id.radioButton_1_2:
+                case R.id.radioButton_3_2:
                     radioButton1.setSelected(false);
                     radioButton2.setSelected(true);
                     radioButton3.setSelected(false);
                     break;
-                case R.id.radioButton_1_3:
+                case R.id.radioButton_3_3:
                     radioButton1.setSelected(false);
                     radioButton2.setSelected(false);
                     radioButton3.setSelected(true);
@@ -97,7 +98,7 @@ public class Question1 extends AppCompatActivity {
     }
 
 
-    public void next(View view) {
+    public void endTest(View view) {
         lessonViewModel.getById(lesson_number).observe(this, l -> {
                     if (l != null) {
                         questionViewModel.getByLessonId(lesson_number).observe(this, q -> {
@@ -119,7 +120,7 @@ public class Question1 extends AppCompatActivity {
                     }
                 }
         );
-        Intent i = new Intent(this, Question2.class);
+        Intent i = new Intent(this, Lesson1.class);
         finish();
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
