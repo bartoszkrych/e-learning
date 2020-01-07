@@ -40,6 +40,8 @@ public class Lesson1 extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        setTitle("eLearning - Lesson 1");
+
         text.setMovementMethod(new ScrollingMovementMethod());
 
         lessonViewModel = new ViewModelProvider(this).get(LessonViewModel.class);
@@ -72,11 +74,13 @@ public class Lesson1 extends AppCompatActivity {
                 Intent i = new Intent(this, Lesson2.class);
                 finish();
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
                 return true;
             case R.id.item_lesson_3:
                 Intent i2 = new Intent(this, Lesson3.class);
                 finish();
                 startActivity(i2);
+                overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
             default:
                 return super.onOptionsItemSelected(item);
         }
