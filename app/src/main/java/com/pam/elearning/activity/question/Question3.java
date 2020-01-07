@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
-import com.pam.elearning.activity.Lesson1;
+import com.pam.elearning.activity.result.Result1;
 import com.pam.elearning.view_model.AnswerViewModel;
 import com.pam.elearning.view_model.LessonViewModel;
 import com.pam.elearning.view_model.QuestionViewModel;
@@ -120,7 +120,7 @@ public class Question3 extends AppCompatActivity {
                     }
                 }
         );
-        Intent i = new Intent(this, Lesson1.class);
+        Intent i = new Intent(this, Result1.class);
         finish();
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
