@@ -21,23 +21,23 @@ import com.pam.elearning.view_model.QuestionViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Result1 extends AppCompatActivity {
+public class Result2 extends AppCompatActivity {
 
-    @BindView(R.id.result_1)
+    @BindView(R.id.result_2)
     TextView result;
 
-    @BindView(R.id.answerGroup1)
+    @BindView(R.id.answerGroup2)
     RadioGroup radioGroup;
 
-    @BindView(R.id.imageView)
+    @BindView(R.id.imageView_2)
     ImageView answer1;
-    @BindView(R.id.imageView2)
+    @BindView(R.id.imageView2_2)
     ImageView answer2;
-    @BindView(R.id.imageView3)
+    @BindView(R.id.imageView3_2)
     ImageView answer3;
 
 
-    final static Integer lesson_number = 1;
+    final static Integer lesson_number = 2;
 
     private LessonViewModel lessonViewModel;
     private QuestionViewModel questionViewModel;
@@ -48,7 +48,7 @@ public class Result1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_result1);
+        setContentView(R.layout.activity_result2);
         setTitle("TEST - Result");
         ButterKnife.bind(this);
 
@@ -87,7 +87,7 @@ public class Result1 extends AppCompatActivity {
 
 
     public void next(View view) {
-        Intent i = new Intent(this, Result2.class);
+        Intent i = new Intent(this, Result3.class);
         finish();
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

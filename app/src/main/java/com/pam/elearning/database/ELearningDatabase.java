@@ -85,9 +85,9 @@ public abstract class ELearningDatabase extends RoomDatabase {
                 answerDao.insert(new Answer(10, "3ds Max", 8, false));
                 answerDao.insert(new Answer(11, "Maya", 8, false));
                 questionDao.insert(new Question(12, "Who taught Leonardo Da Vinci?", 3));
-                answerDao.insert(new Answer(13, "Sandro Botticelli", 12, false));
-                answerDao.insert(new Answer(14, "Michelangelo di Lodovico", 12, false));
-                answerDao.insert(new Answer(15, "Andrea del Verrocchio", 12, true));
+                answerDao.insert(new Answer(13, "Botticelli", 12, false));
+                answerDao.insert(new Answer(14, "di Lodovico", 12, false));
+                answerDao.insert(new Answer(15, "del Verrocchio", 12, true));
             });
         }
     };

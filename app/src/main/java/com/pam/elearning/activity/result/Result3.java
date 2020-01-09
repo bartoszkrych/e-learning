@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
+import com.pam.elearning.activity.Lesson1;
 import com.pam.elearning.view_model.AnswerViewModel;
 import com.pam.elearning.view_model.LessonViewModel;
 import com.pam.elearning.view_model.QuestionViewModel;
@@ -21,23 +22,23 @@ import com.pam.elearning.view_model.QuestionViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Result1 extends AppCompatActivity {
+public class Result3 extends AppCompatActivity {
 
-    @BindView(R.id.result_1)
+    @BindView(R.id.result_3)
     TextView result;
 
-    @BindView(R.id.answerGroup1)
+    @BindView(R.id.answerGroup3)
     RadioGroup radioGroup;
 
-    @BindView(R.id.imageView)
+    @BindView(R.id.imageView_3)
     ImageView answer1;
-    @BindView(R.id.imageView2)
+    @BindView(R.id.imageView2_3)
     ImageView answer2;
-    @BindView(R.id.imageView3)
+    @BindView(R.id.imageView3_3)
     ImageView answer3;
 
 
-    final static Integer lesson_number = 1;
+    final static Integer lesson_number = 3;
 
     private LessonViewModel lessonViewModel;
     private QuestionViewModel questionViewModel;
@@ -48,7 +49,7 @@ public class Result1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_result1);
+        setContentView(R.layout.activity_result3);
         setTitle("TEST - Result");
         ButterKnife.bind(this);
 
@@ -87,7 +88,7 @@ public class Result1 extends AppCompatActivity {
 
 
     public void next(View view) {
-        Intent i = new Intent(this, Result2.class);
+        Intent i = new Intent(this, Lesson1.class);
         finish();
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.result.Result3"></activity>
+        <activity android:name=".activity.result.Result2" />
         <activity android:name=".activity.result.Result1" />
         <activity android:name=".activity.question.Question3" />
         <activity android:name=".activity.question.Question2" />
