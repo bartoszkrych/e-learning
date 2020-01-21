@@ -52,6 +52,9 @@ public class Question2 extends AppCompatActivity {
         setTitle("TEST");
         ButterKnife.bind(this);
 
+        ((RadioButton) radioGroup.getChildAt(0)).setChecked(true);
+        radioGroup.getChildAt(0).setSelected(true);
+
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.radioButton_2_1:
