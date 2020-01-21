@@ -66,8 +66,10 @@ public class Result3 extends AppCompatActivity {
                                             if (a != null && a.size() > 2) {
                                                 for (int i = 0; i < radioGroup.getChildCount(); i++) {
                                                     ((RadioButton) radioGroup.getChildAt(i)).setText(a.get(i).getContents());
-                                                    if (a.get(i).getIsSelected())
+                                                    if (a.get(i).getIsSelected()) {
                                                         ((RadioButton) radioGroup.getChildAt(i)).setChecked(true);
+                                                        answerViewModel.unSelectById(a.get(i).getId());
+                                                    }
                                                     if (a.get(i).getIsCorrect()) {
                                                         if (i != 0) answer1.setVisibility(View.INVISIBLE);
                                                         if (i != 1) answer2.setVisibility(View.INVISIBLE);
