@@ -84,7 +84,7 @@ public class Lesson2 extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
                 return true;
             case R.id.item_test:
-                Toast.makeText(this, "AFTER LESSON ABOUT DA VINCI!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "AFTER LESSON 3!", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
