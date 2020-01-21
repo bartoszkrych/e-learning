@@ -26,4 +26,8 @@ public class AnswerRepository {
     public void selectById(Integer id) {
         ELearningDatabase.databaseWriteExecutor.execute(() -> answerDao.selectById(id));
     }
+
+    public void unSelectById(Integer id) {
+        ELearningDatabase.databaseWriteExecutor.execute(() -> answerDao.unSelectById(id));
+    }
 }
