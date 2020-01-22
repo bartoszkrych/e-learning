@@ -51,7 +51,7 @@ public class Lesson1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_lesson1, container, false);
         ButterKnife.bind(this, view);
 
-        return inflater.inflate(R.layout.fragment_lesson1, container, false);
+        return view;
     }
 
     @Override
