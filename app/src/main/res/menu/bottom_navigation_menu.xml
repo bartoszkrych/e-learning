@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_lesson_1"
+        android:icon="@drawable/baseline_music_note_black_18dp"
+        android:title="Lesson 1" />
+    <item
+        android:id="@+id/navigation_lesson_2"
+        android:icon="@drawable/baseline_movie_black_18dp"
+        android:title="Lesson 2" />
+    <item
+        android:id="@+id/navigation_lesson_3"
+        android:icon="@drawable/baseline_image_black_18dp"
+        android:title="Lesson 3" />
+    <item
+        android:id="@+id/navigation_test"
+        android:icon="@drawable/baseline_edit_black_18dp"
+        android:title="Test" />
+</menu>
