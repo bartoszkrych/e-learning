@@ -8,11 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pam.elearning.R;
 import com.pam.elearning.activity.question.Question1;
 import com.pam.elearning.fragment.Lesson1;
+import com.pam.elearning.view_model.LessonViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final String TAG_L1 = "Lesson1";
     private static final String TAG_L2 = "Lesson2";
     private static final String TAG_L3 = "Lesson3";
+
+
+    LessonViewModel lessonViewModel;
 
     Fragment lessonFragment1;
     FragmentTransaction transaction;
@@ -34,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        lessonViewModel = new ViewModelProvider(this).get(LessonViewModel.class);
 
         bottomNavigation.setOnNavigationItemSelectedListener(this);
 
