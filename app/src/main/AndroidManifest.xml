@@ -24,11 +24,6 @@
         <activity android:name=".activity.question.Question3" />
         <activity android:name=".activity.question.Question2" />
         <activity android:name=".activity.question.Question1" />
-        <activity android:name=".activity.Lesson3" />
-        <activity android:name=".activity.Lesson2" />
-        <activity android:name=".activity.Lesson1">
-
-        </activity>
     </application>
 
 </manifest>
