@@ -15,6 +15,7 @@ import com.pam.elearning.R;
 import com.pam.elearning.activity.question.Question1;
 import com.pam.elearning.fragment.Lesson1;
 import com.pam.elearning.fragment.Lesson2;
+import com.pam.elearning.fragment.Lesson3;
 import com.pam.elearning.view_model.LessonViewModel;
 
 import butterknife.BindView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     Fragment lessonFragment1;
     Fragment lessonFragment2;
+    Fragment lessonFragment3;
     FragmentTransaction transaction;
 
     @BindView(R.id.bottom_navigation)
@@ -49,11 +51,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         if (savedInstanceState == null) {
             lessonFragment1 = new Lesson1();
             lessonFragment2 = new Lesson2();
+            lessonFragment3 = new Lesson3();
             transaction = getSupportFragmentManager().beginTransaction();
             transaction.add(R.id.container, lessonFragment1, TAG_L1);
             transaction.add(R.id.container, lessonFragment2, TAG_L2);
+            transaction.add(R.id.container, lessonFragment3, TAG_L3);
             transaction.attach(lessonFragment1);
             transaction.detach(lessonFragment2);
+            transaction.detach(lessonFragment3);
             transaction.commit();
         } else {
             lessonFragment1 = getSupportFragmentManager().findFragmentByTag(TAG_L1);
@@ -67,22 +72,26 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (menuItem.getItemId()) {
             case R.id.navigation_lesson_1:
                 transaction.detach(lessonFragment2);
+                transaction.detach(lessonFragment3);
                 transaction.attach(lessonFragment1);
                 transaction.commit();
                 return true;
             case R.id.navigation_lesson_2:
                 transaction.detach(lessonFragment1);
+                transaction.detach(lessonFragment3);
                 transaction.attach(lessonFragment2);
                 transaction.commit();
                 return true;
             case R.id.navigation_lesson_3:
                 transaction.detach(lessonFragment1);
                 transaction.detach(lessonFragment2);
+                transaction.attach(lessonFragment3);
                 transaction.commit();
                 return true;
             case R.id.navigation_test:
                 transaction.detach(lessonFragment1);
                 transaction.detach(lessonFragment2);
+                transaction.detach(lessonFragment3);
                 transaction.commit();
                 Intent test = new Intent(getApplicationContext(), Question1.class);
                 finish();
