@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
-import com.pam.elearning.activity.Lesson1;
+import com.pam.elearning.activity.MainActivity;
 import com.pam.elearning.view_model.AnswerViewModel;
 import com.pam.elearning.view_model.LessonViewModel;
 import com.pam.elearning.view_model.QuestionViewModel;
@@ -90,7 +90,7 @@ public class Result3 extends AppCompatActivity {
 
 
     public void next(View view) {
-        Intent i = new Intent(this, Lesson1.class);
+        Intent i = new Intent(this, MainActivity.class);
         finish();
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
