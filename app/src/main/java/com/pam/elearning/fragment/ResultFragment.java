@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
-import com.pam.elearning.view_model.QuestionViewModel;
 import com.pam.elearning.view_model.ResultViewModel;
 
 import butterknife.BindView;
@@ -39,7 +38,6 @@ public class ResultFragment extends Fragment {
 
     private int lessonNumber;
 
-    private QuestionViewModel questionViewModel;
     private ResultViewModel resultViewModel;
 
     public ResultFragment() {
@@ -62,20 +60,20 @@ public class ResultFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        questionViewModel = new ViewModelProvider(requireActivity()).get(QuestionViewModel.class);
         resultViewModel = new ViewModelProvider(requireActivity()).get(ResultViewModel.class);
 
-        questionViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), q ->
+        resultViewModel.getQuestionByLessonId(lessonNumber).observe(getViewLifecycleOwner(), q ->
         {
             if (q != null) result.setText(q.getContents());
         });
-        resultViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), a -> {
+
+        resultViewModel.getAnswersByLessonId(lessonNumber).observe(getViewLifecycleOwner(), a -> {
             if (a != null && a.size() > 2) {
                 for (int i = 0; i < radioGroup.getChildCount(); i++) {
                     ((RadioButton) radioGroup.getChildAt(i)).setText(a.get(i).getContents());
+
                     if (a.get(i).getIsSelected()) {
                         ((RadioButton) radioGroup.getChildAt(i)).setChecked(true);
-
                     }
 
                     if (a.get(i).getIsCorrect()) {
