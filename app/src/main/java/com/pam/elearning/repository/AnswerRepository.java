@@ -19,8 +19,8 @@ public class AnswerRepository {
         this.answerDao = db.answerDao();
     }
 
-    public LiveData<List<Answer>> getByQuestionId(Integer id) {
-        return answerDao.findByQuestionId(id);
+    public LiveData<List<Answer>> getByLessonId(Integer id) {
+        return answerDao.findByLessonId(id);
     }
 
     public void selectByLessonIdAndContents(Integer id, String contents) {
