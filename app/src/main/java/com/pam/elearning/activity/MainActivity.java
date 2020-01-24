@@ -15,7 +15,7 @@ import com.pam.elearning.R;
 import com.pam.elearning.fragment.Lesson1;
 import com.pam.elearning.fragment.Lesson2;
 import com.pam.elearning.fragment.Lesson3;
-import com.pam.elearning.view_model.LessonViewModel;
+import com.pam.elearning.view_model.MainViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private boolean fromRight = false;
 
-    LessonViewModel lessonViewModel;
+    MainViewModel mainViewModel;
 
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigation;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        lessonViewModel = new ViewModelProvider(this).get(LessonViewModel.class);
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         bottomNavigation.setOnNavigationItemSelectedListener(this);
 

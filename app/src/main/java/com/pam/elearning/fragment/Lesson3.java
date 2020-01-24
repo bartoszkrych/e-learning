@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
-import com.pam.elearning.view_model.LessonViewModel;
+import com.pam.elearning.view_model.MainViewModel;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
  */
 public class Lesson3 extends Fragment {
 
-    private LessonViewModel lessonViewModel;
+    private MainViewModel mainViewModel;
 
     @BindView(R.id.tit3)
     TextView title;
@@ -61,9 +61,9 @@ public class Lesson3 extends Fragment {
 
         text.setMovementMethod(new ScrollingMovementMethod());
 
-        lessonViewModel = new ViewModelProvider(requireActivity()).get(LessonViewModel.class);
+        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
-        lessonViewModel.getById(lesson_number).observe(getViewLifecycleOwner(), l ->
+        mainViewModel.getById(lesson_number).observe(getViewLifecycleOwner(), l ->
                 {
                     if (l != null) {
                         title.setText(l.getTitle());
