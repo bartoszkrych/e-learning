@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.pam.elearning.R;
-import com.pam.elearning.activity.result.Result1;
 import com.pam.elearning.fragment.ResultFragment;
 
 public class ResultActivity extends AppCompatActivity {
@@ -30,9 +29,9 @@ public class ResultActivity extends AppCompatActivity {
                 .beginTransaction();
         ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         if (numberOfLesson <= 3) {
-            ft.replace(R.id.container_question, new ResultFragment(numberOfLesson++)).commit();
+            ft.replace(R.id.container_result, new ResultFragment(numberOfLesson++)).commit();
         } else {
-            Intent test = new Intent(getApplicationContext(), Result1.class);
+            Intent test = new Intent(getApplicationContext(), MainActivity.class);
             finish();
             startActivity(test);
             overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
