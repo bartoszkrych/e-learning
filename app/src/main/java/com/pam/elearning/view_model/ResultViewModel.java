@@ -10,11 +10,11 @@ import com.pam.elearning.repository.AnswerRepository;
 
 import java.util.List;
 
-public class AnswerViewModel extends AndroidViewModel {
+public class ResultViewModel extends AndroidViewModel {
 
     private AnswerRepository answerRepository;
 
-    public AnswerViewModel(Application application) {
+    public ResultViewModel(Application application) {
         super(application);
         answerRepository = new AnswerRepository(application);
     }

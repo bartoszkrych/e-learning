@@ -16,8 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
-import com.pam.elearning.view_model.AnswerViewModel;
 import com.pam.elearning.view_model.QuestionViewModel;
+import com.pam.elearning.view_model.ResultViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,7 +40,7 @@ public class ResultFragment extends Fragment {
     private int lessonNumber;
 
     private QuestionViewModel questionViewModel;
-    private AnswerViewModel answerViewModel;
+    private ResultViewModel resultViewModel;
 
     public ResultFragment() {
     }
@@ -63,13 +63,13 @@ public class ResultFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         questionViewModel = new ViewModelProvider(requireActivity()).get(QuestionViewModel.class);
-        answerViewModel = new ViewModelProvider(requireActivity()).get(AnswerViewModel.class);
+        resultViewModel = new ViewModelProvider(requireActivity()).get(ResultViewModel.class);
 
         questionViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), q ->
         {
             if (q != null) result.setText(q.getContents());
         });
-        answerViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), a -> {
+        resultViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), a -> {
             if (a != null && a.size() > 2) {
                 for (int i = 0; i < radioGroup.getChildCount(); i++) {
                     ((RadioButton) radioGroup.getChildAt(i)).setText(a.get(i).getContents());
@@ -92,6 +92,6 @@ public class ResultFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        answerViewModel.unselectAnswersByLessonId(lessonNumber);
+        resultViewModel.unselectAnswersByLessonId(lessonNumber);
     }
 }
