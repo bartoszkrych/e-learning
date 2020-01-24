@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.QuestionActivity"></activity>
+        <activity android:name=".activity.ResultActivity"></activity>
+        <activity android:name=".activity.QuestionActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +23,6 @@
         <activity android:name=".activity.result.Result3" />
         <activity android:name=".activity.result.Result2" />
         <activity android:name=".activity.result.Result1" />
-        <activity android:name=".activity.question.Question3" />
-        <activity android:name=".activity.question.Question2" />
-        <activity android:name=".activity.question.Question1" />
     </application>
 
 </manifest>
