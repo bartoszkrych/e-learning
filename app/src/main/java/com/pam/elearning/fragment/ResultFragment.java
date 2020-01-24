@@ -17,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
 import com.pam.elearning.view_model.AnswerViewModel;
-import com.pam.elearning.view_model.LessonViewModel;
 import com.pam.elearning.view_model.QuestionViewModel;
 
 import butterknife.BindView;
@@ -43,7 +42,6 @@ public class ResultFragment extends Fragment {
 
     private int lessonNumber;
 
-    private LessonViewModel lessonViewModel;
     private QuestionViewModel questionViewModel;
     private AnswerViewModel answerViewModel;
 
@@ -69,39 +67,31 @@ public class ResultFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        lessonViewModel = new ViewModelProvider(requireActivity()).get(LessonViewModel.class);
         questionViewModel = new ViewModelProvider(requireActivity()).get(QuestionViewModel.class);
         answerViewModel = new ViewModelProvider(requireActivity()).get(AnswerViewModel.class);
 
-        lessonViewModel.getById(lessonNumber).observe(getViewLifecycleOwner(), l -> {
-                    if (l != null) {
-                        questionViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), q -> {
-                                    if (q != null) {
-                                        result.setText(q.getContents());
-                                        answerViewModel.getByQuestionId(q.getId()).observe(getViewLifecycleOwner(), a -> {
-                                            if (a != null && a.size() > 2) {
-                                                for (int i = 0; i < radioGroup.getChildCount(); i++) {
-                                                    ((RadioButton) radioGroup.getChildAt(i)).setText(a.get(i).getContents());
-                                                    if (a.get(i).getIsSelected()) {
-                                                        ((RadioButton) radioGroup.getChildAt(i)).setChecked(true);
-                                                        answerViewModel.unSelectById(a.get(i).getId());
-                                                    }
-
-                                                    if (a.get(i).getIsCorrect()) {
-                                                        if (i != 0) answer1.setVisibility(View.INVISIBLE);
-                                                        if (i != 1) answer2.setVisibility(View.INVISIBLE);
-                                                        if (i != 2) answer3.setVisibility(View.INVISIBLE);
-                                                    }
-                                                    radioGroup.getChildAt(i).setEnabled(false);
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                        );
-                    }
+        questionViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), q -> {
+            if (q != null) result.setText(q.getContents());
                 }
         );
+        answerViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), a -> {
+            if (a != null && a.size() > 2) {
+                for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                    ((RadioButton) radioGroup.getChildAt(i)).setText(a.get(i).getContents());
+                    if (a.get(i).getIsSelected()) {
+                        ((RadioButton) radioGroup.getChildAt(i)).setChecked(true);
+                        answerViewModel.unSelectById(a.get(i).getId());
+                    }
+
+                    if (a.get(i).getIsCorrect()) {
+                        if (i != 0) answer1.setVisibility(View.INVISIBLE);
+                        if (i != 1) answer2.setVisibility(View.INVISIBLE);
+                        if (i != 2) answer3.setVisibility(View.INVISIBLE);
+                    }
+                    radioGroup.getChildAt(i).setEnabled(false);
+                }
+            }
+        });
     }
 
 }

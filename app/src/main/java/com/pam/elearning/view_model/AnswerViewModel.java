@@ -19,8 +19,8 @@ public class AnswerViewModel extends AndroidViewModel {
         answerRepository = new AnswerRepository(application);
     }
 
-    public LiveData<List<Answer>> getByQuestionId(Integer id) {
-        return answerRepository.getByQuestionId(id);
+    public LiveData<List<Answer>> getByLessonId(Integer id) {
+        return answerRepository.getByLessonId(id);
     }
 
     public void selectById(Integer id) {
