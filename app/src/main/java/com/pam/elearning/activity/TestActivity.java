@@ -12,7 +12,7 @@ import com.pam.elearning.R;
 import com.pam.elearning.fragment.QuestionFragment;
 import com.pam.elearning.fragment.ResultFragment;
 
-public class QuestionActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity {
 
     private int numberOfLesson = 1;
     private boolean isTest = true;
@@ -20,10 +20,10 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
+        setContentView(R.layout.activity_test);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container_question, new QuestionFragment(numberOfLesson++))
+                .replace(R.id.container_test, new QuestionFragment(numberOfLesson++))
                 .commit();
     }
 
@@ -47,6 +47,6 @@ public class QuestionActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
             return;
         }
-        ft.replace(R.id.container_question, fragment).commit();
+        ft.replace(R.id.container_test, fragment).commit();
     }
 }

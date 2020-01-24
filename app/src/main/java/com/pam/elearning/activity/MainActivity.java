@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fromRight = true;
                 return true;
             case R.id.navigation_test:
-                Intent test = new Intent(getApplicationContext(), QuestionActivity.class);
+                Intent test = new Intent(getApplicationContext(), TestActivity.class);
                 finish();
                 startActivity(test);
                 overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
