@@ -27,11 +27,7 @@ public class AnswerViewModel extends AndroidViewModel {
         answerRepository.selectByLessonIdAndContents(id, contents);
     }
 
-    public void unSelectById(Integer id) {
-        answerRepository.unSelectById(id);
-    }
-
-    void unselectAnswersByLessonId(Integer id) {
+    public void unselectAnswersByLessonId(Integer id) {
         answerRepository.unselectAnswersByLessonId(id);
     }
 

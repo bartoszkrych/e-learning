@@ -70,17 +70,17 @@ public class ResultFragment extends Fragment {
         questionViewModel = new ViewModelProvider(requireActivity()).get(QuestionViewModel.class);
         answerViewModel = new ViewModelProvider(requireActivity()).get(AnswerViewModel.class);
 
-        questionViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), q -> {
+        questionViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), q ->
+        {
             if (q != null) result.setText(q.getContents());
-                }
-        );
+        });
         answerViewModel.getByLessonId(lessonNumber).observe(getViewLifecycleOwner(), a -> {
             if (a != null && a.size() > 2) {
                 for (int i = 0; i < radioGroup.getChildCount(); i++) {
                     ((RadioButton) radioGroup.getChildAt(i)).setText(a.get(i).getContents());
                     if (a.get(i).getIsSelected()) {
                         ((RadioButton) radioGroup.getChildAt(i)).setChecked(true);
-                        answerViewModel.unSelectById(a.get(i).getId());
+
                     }
 
                     if (a.get(i).getIsCorrect()) {
@@ -94,4 +94,9 @@ public class ResultFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        answerViewModel.unselectAnswersByLessonId(lessonNumber);
+    }
 }
