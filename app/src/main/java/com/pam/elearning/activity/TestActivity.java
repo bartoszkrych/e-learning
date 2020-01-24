@@ -3,6 +3,8 @@ package com.pam.elearning.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -20,7 +22,11 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_test);
+        setTitle("TEST");
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container_test, new QuestionFragment(numberOfLesson++))
@@ -39,6 +45,7 @@ public class TestActivity extends AppCompatActivity {
                 isTest = false;
             }
         } else if (numberOfLesson <= 3) {
+            setTitle("TEST - Result");
             fragment = new ResultFragment(numberOfLesson++);
         } else {
             Intent test = new Intent(getApplicationContext(), MainActivity.class);
