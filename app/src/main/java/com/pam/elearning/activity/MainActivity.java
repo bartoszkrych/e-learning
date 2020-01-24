@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pam.elearning.R;
-import com.pam.elearning.activity.question.Question1;
 import com.pam.elearning.fragment.Lesson1;
 import com.pam.elearning.fragment.Lesson2;
 import com.pam.elearning.fragment.Lesson3;
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fromRight = true;
                 return true;
             case R.id.navigation_test:
-                Intent test = new Intent(getApplicationContext(), Question1.class);
+                Intent test = new Intent(getApplicationContext(), QuestionActivity.class);
                 finish();
                 startActivity(test);
                 overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
