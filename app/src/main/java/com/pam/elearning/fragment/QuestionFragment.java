@@ -122,26 +122,12 @@ public class QuestionFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        lessonViewModel.getById(lessonNumber).observe(this, l -> {
-                    if (l != null) {
-                        questionViewModel.getByLessonId(lessonNumber).observe(this, q -> {
-                                    if (q != null) {
-                                        answerViewModel.getByQuestionId(q.getId()).observe(this, a -> {
-                                            if (a != null && a.size() > 2) {
-                                                for (int i = 0; i < radioGroup.getChildCount(); i++) {
-                                                    if (radioGroup.getChildAt(i).isSelected()) {
-                                                        answerViewModel.selectById(a.get(i).getId());
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                        );
-                    }
-                }
-        );
+        for (int i = 0; i < radioGroup.getChildCount(); i++) {
+            if (radioGroup.getChildAt(i).isSelected()) {
+                answerViewModel.selectById((lessonNumber * 4) + 1 + i);
+                break;
+            }
+        }
     }
 
 }
