@@ -5,14 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.pam.elearning.R;
 import com.pam.elearning.fragment.QuestionFragment;
+import com.pam.elearning.fragment.ResultFragment;
 
 public class QuestionActivity extends AppCompatActivity {
 
     private int numberOfLesson = 1;
+    private boolean isTest = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +31,22 @@ public class QuestionActivity extends AppCompatActivity {
         FragmentTransaction ft = getSupportFragmentManager()
                 .beginTransaction();
         ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-        if (numberOfLesson <= 3) {
-            ft.replace(R.id.container_question, new QuestionFragment(numberOfLesson++)).commit();
+        Fragment fragment;
+        if (isTest && numberOfLesson <= 3) {
+            fragment = new QuestionFragment(numberOfLesson++);
+            if (numberOfLesson > 3) {
+                numberOfLesson = 1;
+                isTest = false;
+            }
+        } else if (numberOfLesson <= 3) {
+            fragment = new ResultFragment(numberOfLesson++);
         } else {
-            Intent test = new Intent(getApplicationContext(), ResultActivity.class);
+            Intent test = new Intent(getApplicationContext(), MainActivity.class);
             finish();
             startActivity(test);
             overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+            return;
         }
+        ft.replace(R.id.container_question, fragment).commit();
     }
 }
