@@ -23,8 +23,8 @@ public class AnswerViewModel extends AndroidViewModel {
         return answerRepository.getByQuestionId(id);
     }
 
-    public void selectById(Integer id) {
-        answerRepository.selectById(id);
+    public void selectByLessonIdAndContents(Integer id, String contents) {
+        answerRepository.selectByLessonIdAndContents(id, contents);
     }
 
     public void unSelectById(Integer id) {

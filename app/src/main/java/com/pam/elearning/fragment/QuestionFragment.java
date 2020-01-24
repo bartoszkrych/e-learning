@@ -124,7 +124,11 @@ public class QuestionFragment extends Fragment {
 
         for (int i = 0; i < radioGroup.getChildCount(); i++) {
             if (radioGroup.getChildAt(i).isSelected()) {
-                answerViewModel.selectById((lessonNumber * 4) + 1 + i);
+                answerViewModel.selectByLessonIdAndContents
+                        (
+                                lessonNumber,
+                                ((RadioButton) radioGroup.getChildAt(i)).getText().toString()
+                        );
                 break;
             }
         }

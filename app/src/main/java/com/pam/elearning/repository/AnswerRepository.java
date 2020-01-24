@@ -23,8 +23,8 @@ public class AnswerRepository {
         return answerDao.findByQuestionId(id);
     }
 
-    public void selectById(Integer id) {
-        ELearningDatabase.databaseWriteExecutor.execute(() -> answerDao.selectById(id));
+    public void selectByLessonIdAndContents(Integer id, String contents) {
+        ELearningDatabase.databaseWriteExecutor.execute(() -> answerDao.selectByLessonIdAndContents(id, contents));
     }
 
     public void unSelectById(Integer id) {
