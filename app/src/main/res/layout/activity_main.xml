@@ -1,68 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Lesson1">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.MainActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container">
 
-    <TextView
-        android:id="@+id/sub1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="30dp"
-        android:text="Subject :"
-        android:textSize="25dp"
-        android:textColor="@color/defaultTextColor"
-        app:layout_constraintBottom_toTopOf="@+id/andExoPlayerView1"
-        app:layout_constraintEnd_toStartOf="@+id/tit1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/bottom_navigation_menu" />
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/tit1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:text="Example subject"
-        android:textSize="25dp"
-        android:textColor="@color/defaultTextColor"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/sub1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sub1" />
-
-    <com.potyvideo.library.AndExoPlayerView
-        android:id="@+id/andExoPlayerView1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        app:andexo_aspect_ratio="aspect_mp3"
-        app:andexo_full_screen="false"
-        app:andexo_play_when_ready="false"
-        app:andexo_resize_mode="Fit"
-        app:layout_constraintBottom_toTopOf="@+id/txt1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sub1" />
-
-    <TextView
-        android:id="@+id/txt1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
-        android:textColor="@color/defaultTextColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/andExoPlayerView1"
-        android:scrollbars="vertical" />
 </androidx.constraintlayout.widget.ConstraintLayout>
