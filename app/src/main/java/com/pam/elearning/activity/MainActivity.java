@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final String TAG_L1 = "Lesson1";
     private static final String TAG_L2 = "Lesson2";
     private static final String TAG_L3 = "Lesson3";
+    private boolean isThird = false;
 
 
     LessonViewModel lessonViewModel;
@@ -71,21 +72,36 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         transaction = getSupportFragmentManager().beginTransaction();
         switch (menuItem.getItemId()) {
             case R.id.navigation_lesson_1:
+
+                isThird = false;
+                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+                transaction.attach(lessonFragment1);
                 transaction.detach(lessonFragment2);
                 transaction.detach(lessonFragment3);
-                transaction.attach(lessonFragment1);
+                transaction.addToBackStack(null);
                 transaction.commit();
                 return true;
             case R.id.navigation_lesson_2:
+                if (isThird) {
+                    isThird = false;
+                    transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+                } else {
+                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                }
+                transaction.attach(lessonFragment2);
                 transaction.detach(lessonFragment1);
                 transaction.detach(lessonFragment3);
-                transaction.attach(lessonFragment2);
+                transaction.addToBackStack(null);
                 transaction.commit();
                 return true;
             case R.id.navigation_lesson_3:
-                transaction.detach(lessonFragment1);
-                transaction.detach(lessonFragment2);
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                isThird = true;
                 transaction.attach(lessonFragment3);
+                transaction.detach(lessonFragment2);
+                transaction.detach(lessonFragment1);
+
+                transaction.addToBackStack(null);
                 transaction.commit();
                 return true;
             case R.id.navigation_test:
