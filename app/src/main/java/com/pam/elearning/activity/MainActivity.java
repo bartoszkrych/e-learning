@@ -23,18 +23,9 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG_L1 = "Lesson1";
-    private static final String TAG_L2 = "Lesson2";
-    private static final String TAG_L3 = "Lesson3";
-    private boolean isThird = false;
-
+    private boolean fromRight = false;
 
     LessonViewModel lessonViewModel;
-
-    Fragment lessonFragment1;
-    Fragment lessonFragment2;
-    Fragment lessonFragment3;
-    FragmentTransaction transaction;
 
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigation;
@@ -49,66 +40,26 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         bottomNavigation.setOnNavigationItemSelectedListener(this);
 
-        if (savedInstanceState == null) {
-            lessonFragment1 = new Lesson1();
-            lessonFragment2 = new Lesson2();
-            lessonFragment3 = new Lesson3();
-            transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.container, lessonFragment1, TAG_L1);
-            transaction.add(R.id.container, lessonFragment2, TAG_L2);
-            transaction.add(R.id.container, lessonFragment3, TAG_L3);
-            transaction.attach(lessonFragment1);
-            transaction.detach(lessonFragment2);
-            transaction.detach(lessonFragment3);
-            transaction.commit();
-        } else {
-            lessonFragment1 = getSupportFragmentManager().findFragmentByTag(TAG_L1);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, new Lesson1())
+                .commit();
 
-        }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        transaction = getSupportFragmentManager().beginTransaction();
         switch (menuItem.getItemId()) {
             case R.id.navigation_lesson_1:
-
-                isThird = false;
-                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-                transaction.attach(lessonFragment1);
-                transaction.detach(lessonFragment2);
-                transaction.detach(lessonFragment3);
-                transaction.addToBackStack(null);
-                transaction.commit();
-                return true;
+                fromRight = true;
+                return switchFragment(new Lesson1());
             case R.id.navigation_lesson_2:
-                if (isThird) {
-                    isThird = false;
-                    transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-                } else {
-                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                }
-                transaction.attach(lessonFragment2);
-                transaction.detach(lessonFragment1);
-                transaction.detach(lessonFragment3);
-                transaction.addToBackStack(null);
-                transaction.commit();
-                return true;
+                return switchFragment(new Lesson2());
             case R.id.navigation_lesson_3:
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                isThird = true;
-                transaction.attach(lessonFragment3);
-                transaction.detach(lessonFragment2);
-                transaction.detach(lessonFragment1);
-
-                transaction.addToBackStack(null);
-                transaction.commit();
+                switchFragment(new Lesson3());
+                fromRight = true;
                 return true;
             case R.id.navigation_test:
-                transaction.detach(lessonFragment1);
-                transaction.detach(lessonFragment2);
-                transaction.detach(lessonFragment3);
-                transaction.commit();
                 Intent test = new Intent(getApplicationContext(), Question1.class);
                 finish();
                 startActivity(test);
@@ -116,5 +67,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
         }
         return false;
+    }
+
+    private boolean switchFragment(Fragment fragment) {
+        FragmentTransaction ft = getSupportFragmentManager()
+                .beginTransaction();
+        if (fromRight) {
+            fromRight = false;
+            ft.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+        } else {
+            ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+        }
+        ft.replace(R.id.container, fragment).commit();
+
+        return true;
     }
 }
