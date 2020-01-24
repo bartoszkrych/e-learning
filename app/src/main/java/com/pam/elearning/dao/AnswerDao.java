@@ -19,4 +19,7 @@ public interface AnswerDao extends BaseDao<Answer>{
 
     @Query("UPDATE ANSWER SET isSelected = 0 WHERE id = :id ")
     void unSelectById(Integer id);
+
+    @Query("UPDATE ANSWER SET isSelected = 0 WHERE question_id = (SELECT id FROM QUESTION WHERE lesson_id = :id) ")
+    void unselectAnswersByLessonId(Integer id);
 }
