@@ -29,8 +29,8 @@ public class TestActivity extends AppCompatActivity {
 
     public void next(View view) {
         FragmentTransaction ft = getSupportFragmentManager()
-                .beginTransaction();
-        ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         Fragment fragment;
         if (isTest && numberOfLesson <= 3) {
             fragment = new QuestionFragment(numberOfLesson++);
