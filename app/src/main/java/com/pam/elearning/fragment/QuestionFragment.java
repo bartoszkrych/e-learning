@@ -21,9 +21,6 @@ import com.pam.elearning.view_model.QuestionViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class QuestionFragment extends Fragment {
 
 
@@ -48,7 +45,6 @@ public class QuestionFragment extends Fragment {
     private AnswerViewModel answerViewModel;
 
     public QuestionFragment() {
-        // Required empty public constructor
     }
 
     public QuestionFragment(int lessonNumber) {
@@ -58,7 +54,6 @@ public class QuestionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_question, container, false);
         ButterKnife.bind(this, view);
 

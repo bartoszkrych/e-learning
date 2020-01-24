@@ -22,9 +22,6 @@ import com.pam.elearning.view_model.QuestionViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ResultFragment extends Fragment {
 
     @BindView(R.id.result_question)
@@ -46,7 +43,6 @@ public class ResultFragment extends Fragment {
     private AnswerViewModel answerViewModel;
 
     public ResultFragment() {
-        // Required empty public constructor
     }
 
     public ResultFragment(int lessonNumber) {
@@ -56,7 +52,6 @@ public class ResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_result, container, false);
         ButterKnife.bind(this, view);
 
