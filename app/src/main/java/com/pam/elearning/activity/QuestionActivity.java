@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.pam.elearning.R;
-import com.pam.elearning.activity.result.Result1;
 import com.pam.elearning.fragment.QuestionFragment;
 
 public class QuestionActivity extends AppCompatActivity {
@@ -32,7 +31,7 @@ public class QuestionActivity extends AppCompatActivity {
         if (numberOfLesson <= 3) {
             ft.replace(R.id.container_question, new QuestionFragment(numberOfLesson++)).commit();
         } else {
-            Intent test = new Intent(getApplicationContext(), Result1.class);
+            Intent test = new Intent(getApplicationContext(), ResultActivity.class);
             finish();
             startActivity(test);
             overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
