@@ -66,18 +66,18 @@ public class QuestionFragment extends Fragment {
 
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
-                case R.id.radioButton_1_1:
+                case R.id.radioButton_1:
                     radioButton1.setSelected(true);
                     radioButton2.setSelected(false);
                     radioButton3.setSelected(false);
                     break;
 
-                case R.id.radioButton_1_2:
+                case R.id.radioButton_2:
                     radioButton1.setSelected(false);
                     radioButton2.setSelected(true);
                     radioButton3.setSelected(false);
                     break;
-                case R.id.radioButton_1_3:
+                case R.id.radioButton_3:
                     radioButton1.setSelected(false);
                     radioButton2.setSelected(false);
                     radioButton3.setSelected(true);
@@ -114,16 +114,18 @@ public class QuestionFragment extends Fragment {
                     }
                 }
         );
+
     }
 
+
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
+
         lessonViewModel.getById(lessonNumber).observe(this, l -> {
                     if (l != null) {
                         questionViewModel.getByLessonId(lessonNumber).observe(this, q -> {
                                     if (q != null) {
-                                        question.setText(q.getContents());
                                         answerViewModel.getByQuestionId(q.getId()).observe(this, a -> {
                                             if (a != null && a.size() > 2) {
                                                 for (int i = 0; i < radioGroup.getChildCount(); i++) {
@@ -141,4 +143,5 @@ public class QuestionFragment extends Fragment {
                 }
         );
     }
+
 }
