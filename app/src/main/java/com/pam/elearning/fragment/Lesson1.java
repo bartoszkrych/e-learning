@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.pam.elearning.R;
-import com.pam.elearning.view_model.MainViewModel;
+import com.pam.elearning.view_model.LessonViewModel;
 import com.potyvideo.library.AndExoPlayerView;
 
 import butterknife.BindView;
@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
  */
 public class Lesson1 extends Fragment {
 
-    private MainViewModel mainViewModel;
+    private LessonViewModel lessonViewModel;
 
     @BindView(R.id.tit1)
     TextView title;
@@ -60,9 +60,9 @@ public class Lesson1 extends Fragment {
 
         text.setMovementMethod(new ScrollingMovementMethod());
 
-        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+        lessonViewModel = new ViewModelProvider(requireActivity()).get(LessonViewModel.class);
 
-        mainViewModel.getById(lesson_number).observe(getViewLifecycleOwner(), l ->
+        lessonViewModel.getById(lesson_number).observe(getViewLifecycleOwner(), l ->
                 {
                     if (l != null) {
                         title.setText(l.getTitle());

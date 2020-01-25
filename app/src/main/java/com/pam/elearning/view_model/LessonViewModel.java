@@ -8,11 +8,11 @@ import androidx.lifecycle.LiveData;
 import com.pam.elearning.model.Lesson;
 import com.pam.elearning.repository.LessonRepository;
 
-public class MainViewModel extends AndroidViewModel {
+public class LessonViewModel extends AndroidViewModel {
 
     private LessonRepository lessonRepository;
 
-    public MainViewModel(Application application)
+    public LessonViewModel(Application application)
     {
         super(application);
         lessonRepository = new LessonRepository(application);
