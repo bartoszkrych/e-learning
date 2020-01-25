@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 .beginTransaction()
                 .replace(R.id.container, new Lesson1())
                 .commit();
-
     }
 
     @Override
@@ -78,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         }
         ft.replace(R.id.container, fragment).commit();
-
         return true;
     }
 }

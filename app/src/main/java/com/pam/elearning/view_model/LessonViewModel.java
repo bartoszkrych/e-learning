@@ -12,8 +12,7 @@ public class LessonViewModel extends AndroidViewModel {
 
     private LessonRepository lessonRepository;
 
-    public LessonViewModel(Application application)
-    {
+    public LessonViewModel(Application application) {
         super(application);
         lessonRepository = new LessonRepository(application);
     }

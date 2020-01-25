@@ -9,7 +9,7 @@ import com.pam.elearning.model.Answer;
 import java.util.List;
 
 @Dao
-public interface AnswerDao extends BaseDao<Answer>{
+public interface AnswerDao extends BaseDao<Answer> {
 
     @Query("SELECT A.* FROM ANSWER A JOIN QUESTION Q ON A.question_id = Q.id  WHERE Q.lesson_id = :id")
     LiveData<List<Answer>> findByLessonId(final Integer id);

@@ -54,27 +54,21 @@
         app:layout_constraintTop_toBottomOf="@+id/result_question">
 
         <RadioButton
-            android:id="@+id/answer_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="answer1"
             android:textSize="25dp" />
 
         <RadioButton
-            android:id="@+id/answer_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="answer2"
             android:textSize="25dp" />
 
         <RadioButton
-            android:id="@+id/answer_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="answer3"
             android:textSize="25dp" />
 
     </RadioGroup>

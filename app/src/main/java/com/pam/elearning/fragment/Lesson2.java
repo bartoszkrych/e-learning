@@ -20,9 +20,7 @@ import com.potyvideo.library.AndExoPlayerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class Lesson2 extends Fragment {
 
 
@@ -40,20 +38,16 @@ public class Lesson2 extends Fragment {
     private static int lesson_number = 2;
 
     public Lesson2() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_lesson2, container, false);
         ButterKnife.bind(this, view);
 
         return view;
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

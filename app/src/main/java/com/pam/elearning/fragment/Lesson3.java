@@ -21,9 +21,6 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Lesson3 extends Fragment {
 
     private LessonViewModel lessonViewModel;
@@ -39,15 +36,12 @@ public class Lesson3 extends Fragment {
 
     private static int lesson_number = 3;
 
-
     public Lesson3() {
-        // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_lesson3, container, false);
         ButterKnife.bind(this, view);
 

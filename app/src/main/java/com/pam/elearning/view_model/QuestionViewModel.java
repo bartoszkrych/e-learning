@@ -17,8 +17,7 @@ public class QuestionViewModel extends AndroidViewModel {
     private QuestionRepository questionRepository;
     private AnswerRepository answerRepository;
 
-    public QuestionViewModel(Application application)
-    {
+    public QuestionViewModel(Application application) {
         super(application);
         questionRepository = new QuestionRepository(application);
         answerRepository = new AnswerRepository(application);

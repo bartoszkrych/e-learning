@@ -66,7 +66,7 @@ public abstract class ELearningDatabase extends RoomDatabase {
                         2,
                         "Big Buck Bunny",
                         "Big Buck Bunny (code-named Project Peach) is a 2008 short computer-animated comedy film featuring animals of the forest, made by the Blender Institute, part of the Blender Foundation. Like the foundation's previous film, Elephants Dream, the film was made using Blender, a free and open-source software application for 3D computer modeling and animation developed by the same foundation. Unlike that earlier project, the tone and visuals departed from a cryptic story and dark visuals to one of comedy, cartoons, and light-heartedness.\n" +
-                        "\n" +
+                                "\n" +
                                 "It was released as an open-source film under the Creative Commons Attribution 3.0 license.",
                         "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"));
                 lessonDao.insert(new Lesson(
